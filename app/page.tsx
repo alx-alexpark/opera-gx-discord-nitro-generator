@@ -1,10 +1,10 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Home() {
-  const [nitroCode, setNitroCode] = useState("");
+  // const [nitroCode, setNitroCode] = useState("");
   return (
     <main
       style={{
@@ -22,16 +22,16 @@ export default function Home() {
           axios
             .get("/api/generateNitro")
             .then((resp) => {
-              setNitroCode(
+              window.open(
                 "https://discord.com/billing/partner-promotions/1180231712274387115/" +
-                  resp.data.token
+                  resp.data.token, '_blank'
               );
             });
         }}
       >
         Click here to generate nitro!
       </button>
-      {nitroCode.length > 0 && <a href={nitroCode}>{nitroCode}</a>}
+      {/* {nitroCode.length > 0 && <a href={nitroCode}>{nitroCode}</a>} */}
       </div>
     </main>
   );
